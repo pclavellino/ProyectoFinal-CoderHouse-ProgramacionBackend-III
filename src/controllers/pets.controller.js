@@ -48,5 +48,11 @@ export class PetController {
         const result = await this.PetServices.create(pet);
         res.send({status:"success",payload:result})
     }
+
+    createPetsMock = async(req, res) => {
+        const pets = await this.PetServices.createMocks(100);
+        res.status(201).json({ status: "sucess", pets });
+    }
+
 }
 

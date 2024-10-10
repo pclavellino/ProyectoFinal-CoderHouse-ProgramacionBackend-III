@@ -33,7 +33,7 @@ export class UserControllers {
     }
 
     createUsersMock = async(req, res) => {
-        const users = await this.UserServices.createMocks();
+        const users = await this.UserServices.createMocks(50);
         res.status(201).json({ status: "sucess", users });
     }
 }

@@ -21,6 +21,11 @@ export class UserServices {
         return user;
     }
 
+    async createMany(data) {
+        const users = await this.userDao.saveMany(data);
+        return users;
+    }
+
     async update(id, data) {
         const user = await this.userDao.update(id, data);
         return user;
@@ -31,8 +36,8 @@ export class UserServices {
         return "Usuario eliminado correctamente";
     }
 
-    async createMocks() {
-        const users = generateUser(50);
+    async createMocks(amount) {
+        const users = generateUser(amount);
         const usersDb = await this.userDao.saveMany(users);
         return usersDb;
     }
