@@ -16,6 +16,10 @@ export class UserServices {
         return user;
     }
 
+    async getUsersByEmail(email) {
+        return await this.userDao.getByEmail(email);
+    }
+
     async create(data) {
         const user = await this.userDao.save(data);
         return user;

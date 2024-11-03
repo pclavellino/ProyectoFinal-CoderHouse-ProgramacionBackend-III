@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import sessionsController from '../controllers/sessions.controller.js';
+import { SessionsController } from '../controllers/sessions.controller.js';
 
+const sessionsController = new SessionsController();
 const router = Router();
 
 router.post('/register',sessionsController.register);

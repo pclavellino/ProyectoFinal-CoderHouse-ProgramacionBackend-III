@@ -25,8 +25,8 @@ export class AdoptionServices {
         return adoption;
     }
     
-    async remove(id) {
-        await this.adoptionDao.remove(id);
+    async delete(id) {
+        await this.adoptionDao.delete(id);
         return "Datos eliminados correctamente";
     }
 

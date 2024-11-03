@@ -11,8 +11,8 @@ export default class Users {
         return userModel.findById(params);
     }
 
-    getUserByEmail = (email) =>{
-        return userModel.getBy({email});
+    getByEmail = (email) =>{
+        return userModel.findOne({email});
     }
 
     save = (doc) =>{
@@ -24,7 +24,7 @@ export default class Users {
     }
 
     update = (id,doc) =>{
-        return userModel.findByIdAndUpdate(id,{$set:doc})
+        return userModel.findByIdAndUpdate(id,{$set:doc}, {new: true})
     }
 
     delete = (id) =>{

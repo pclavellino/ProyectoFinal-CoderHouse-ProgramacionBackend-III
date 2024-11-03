@@ -14,7 +14,7 @@ export class UserControllers {
         const userId = req.params.uid;
         const user = await this.UserServices.getByID(userId);
         if(!user) return res.status(404).send({status:"error",error:"Usuario no encontrado"})
-        res.send({status:"success",payload:user})
+        res.status(200).json({status:"success",payload:user})
     }
     
     updateUser =async(req,res)=>{
@@ -23,7 +23,7 @@ export class UserControllers {
         const user = await this.UserServices.getByID(userId);
         if(!user) return res.status(404).send({status:"error", error:"Usuario no encontrado"})
         const result = await this.UserServices.update(userId,updateBody);
-        res.send({status:"success",message:"Usuario actualizado correctamente"})
+        res.send({status:"success",message:"Usuario actualizado correctamente", payload:result})
     }
     
     deleteUser = async(req,res) =>{

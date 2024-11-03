@@ -17,14 +17,14 @@ export class PetController {
         if(!name||!specie||!birthDate) return res.status(400).send({status:"error",error:"Datos incompletos. Ingrese los datos faltantes"})
         const pet = PetDTO.getPetInputFrom({name,specie,birthDate});
         const result = await this.PetServices.create(pet);
-        res.send({status:"success",payload:result})
+        res.status(201).json({status:"success",payload:result})
     }
     
     updatePet = async(req,res) =>{
         const petUpdateBody = req.body;
         const petId = req.params.pid;
         const result = await this.PetServices.update(petId,petUpdateBody);
-        res.send({status:"success",message:"Mascota actualizada correctamente"})
+        res.status(200).json({status:"success",message:"Mascota actualizada correctamente", payload:result})
     }
     
     deletePet = async(req,res)=> {

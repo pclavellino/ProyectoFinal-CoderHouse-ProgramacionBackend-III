@@ -1,0 +1,21 @@
+paths:
+  /api/pets:
+    post:
+      summary: Agregar una mascota.
+      description: Agrega una mascota nueva.
+      tags:
+        - Pets
+      requestBody:
+        required: true
+        description: Datos de la mascota.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBody/petBody"
+      responses:
+        201:
+          description: Mascota creada correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pets"
